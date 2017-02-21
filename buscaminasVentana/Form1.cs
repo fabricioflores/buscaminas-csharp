@@ -14,6 +14,7 @@ namespace buscaminasVentana
     public partial class Form1 : Form
     {
         private Tablero tablero = new Tablero(5, 5);
+        private MiBoton[,] botones = new MiBoton[5,5];
         public Form1()
         {
             InitializeComponent();
@@ -31,9 +32,9 @@ namespace buscaminasVentana
                 for (int j = 1; j <= 5; j++)
                 {
                     MiBoton boton = new MiBoton(i, j);
-                    //boton.Text = tablero.getCasillas()[i, j].ToString();
                     boton.Click += new System.EventHandler(this.levantar);
                     lyt_container.Controls.Add(boton);
+                    botones[i-1, j-1] = boton;
 
                     Console.WriteLine(tablero);
                 }
@@ -45,7 +46,19 @@ namespace buscaminasVentana
             MiBoton boton = (MiBoton)sender;
             tablero.LevantaCasilla(boton.getFila(), boton.getColumna());
             boton.Text = tablero.getCasillas()[boton.getFila(), boton.getColumna()].ToString();
-
+            mostrarTexto();
         }
+
+        private void mostrarTexto() {
+            for (int i = 1; i <= 5; i++)
+            {
+                for (int j = 1; j <= 5; j++)
+                {
+                    MiBoton boton = botones[i - 1, j - 1];
+                    boton.Text = tablero.getCasillas()[i, j].ToString();
+                }
+
+            }
+        } 
     }
 }

@@ -14,7 +14,6 @@ namespace buscaminasConsola.models
 
         public Tablero(int n, int m)
         {
-            //sumo dos para tener un borde
             this.fils = n + 2;
             this.cols = m + 2;
             this.casillas = new Casilla[this.fils, this.cols];
@@ -66,15 +65,13 @@ namespace buscaminasConsola.models
             this.casillas[fila, columna].Levanta();
             if (this.casillas[fila, columna].EsVacia())
             {
-                //levanta alrededor
-                //Si no estan levantadas
                 for (int f = fila - 1; f <= (fila + 1); f++)
                 {
                     for (int c = columna - 1; c <= (columna + 1); c++)
                     {
                         if (!this.casillas[f, c].EstaLevantada())
                         {
-                            LevantaCasilla(f, c);//Se tendrán que llenar de 1 el borde para que no se salga del rango al intentar levantar una casilla que esta duera del tablero(se sale de rango)
+                            LevantaCasilla(f, c);
                         }
                     }
                 }

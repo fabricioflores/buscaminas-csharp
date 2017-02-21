@@ -50,7 +50,7 @@ namespace buscaminasConsola.models
             this.marcada = false;
             if (!levantada)
             {
-                msg = "X";
+                msg = " ";
             }
             else
             {
@@ -78,6 +78,10 @@ namespace buscaminasConsola.models
         public bool EsVacia()
         {
             return this.valor == 0 && !EsBomba();
+        }
+
+        public int getValor() {
+            return this.valor;
         }
 
         internal bool EstaLevantada()
