@@ -35,8 +35,6 @@ namespace buscaminasVentana
                     boton.Click += new System.EventHandler(this.levantar);
                     lyt_container.Controls.Add(boton);
                     botones[i-1, j-1] = boton;
-
-                    Console.WriteLine(tablero);
                 }
             }
         }
@@ -46,7 +44,14 @@ namespace buscaminasVentana
             MiBoton boton = (MiBoton)sender;
             tablero.LevantaCasilla(boton.getFila(), boton.getColumna());
             boton.Text = tablero.getCasillas()[boton.getFila(), boton.getColumna()].ToString();
-            mostrarTexto();
+            if (boton.Text == "B")
+            {
+                MessageBox.Show("Perdiste!!!");
+            }
+            else
+            {
+                mostrarTexto();
+            }
         }
 
         private void mostrarTexto() {
@@ -56,6 +61,10 @@ namespace buscaminasVentana
                 {
                     MiBoton boton = botones[i - 1, j - 1];
                     boton.Text = tablero.getCasillas()[i, j].ToString();
+                    if (boton.Text != " ")
+                    {
+                        boton.Enabled = false;
+                    }
                 }
 
             }

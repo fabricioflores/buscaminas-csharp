@@ -50,7 +50,7 @@ namespace buscaminasConsola.models
             {
                 for (int c = 1; c < this.cols - 1; c++)
                 {
-                    if (rnd.Next(100) < 5)
+                    if (rnd.Next(100) < 20)
                     {
                         this.casillas[f, c].PonBomba();
                         SumaUnosALrededor(f, c);
