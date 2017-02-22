@@ -36,15 +36,21 @@
             // 
             // lyt_container
             // 
-            this.lyt_container.ColumnCount = 5;
+            this.lyt_container.ColumnCount = 8;
             this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.lyt_container.Location = new System.Drawing.Point(12, 53);
+            this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.lyt_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.lyt_container.Location = new System.Drawing.Point(12, 79);
             this.lyt_container.Name = "lyt_container";
-            this.lyt_container.RowCount = 5;
+            this.lyt_container.RowCount = 8;
+            this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -68,7 +74,7 @@
             // rb_hard
             // 
             this.rb_hard.AutoSize = true;
-            this.rb_hard.Location = new System.Drawing.Point(23, 30);
+            this.rb_hard.Location = new System.Drawing.Point(23, 47);
             this.rb_hard.Name = "rb_hard";
             this.rb_hard.Size = new System.Drawing.Size(52, 17);
             this.rb_hard.TabIndex = 2;
@@ -80,18 +86,19 @@
             // btn_start
             // 
             this.btn_start.Enabled = false;
-            this.btn_start.Location = new System.Drawing.Point(190, 24);
+            this.btn_start.Location = new System.Drawing.Point(212, 27);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(75, 23);
             this.btn_start.TabIndex = 3;
             this.btn_start.Text = "Empezar";
             this.btn_start.UseVisualStyleBackColor = true;
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 401);
+            this.ClientSize = new System.Drawing.Size(498, 427);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.rb_hard);
             this.Controls.Add(this.rb_easy);

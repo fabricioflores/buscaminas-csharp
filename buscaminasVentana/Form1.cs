@@ -13,8 +13,8 @@ namespace buscaminasVentana
 {
     public partial class Form1 : Form
     {
-        private Tablero tablero = new Tablero(5, 5);
-        private MiBoton[,] botones = new MiBoton[5,5];
+        private Tablero tablero;
+        private MiBoton[,] botones;
         private int selection;
 
         public Form1()
@@ -24,14 +24,22 @@ namespace buscaminasVentana
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            InitTable();
+            
         }
 
         private void InitTable()
         {
-            for (int i = 1; i <= 5; i++)
+            tablero = new Tablero(selection, selection);
+            botones = new MiBoton[selection, selection];
+            lyt_container.RowCount = selection;
+            lyt_container.ColumnCount = selection;
+
+            lyt_container.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            lyt_container.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+
+            for (int i = 1; i <= selection; i++)
             {
-                for (int j = 1; j <= 5; j++)
+                for (int j = 1; j <= selection; j++)
                 {
                     MiBoton boton = new MiBoton(i, j);
                     boton.Click += new System.EventHandler(this.levantar);
@@ -57,9 +65,9 @@ namespace buscaminasVentana
         }
 
         private void mostrarTexto() {
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= selection; i++)
             {
-                for (int j = 1; j <= 5; j++)
+                for (int j = 1; j <= selection; j++)
                 {
                     MiBoton boton = botones[i - 1, j - 1];
                     boton.Text = tablero.getCasillas()[i, j].ToString();
@@ -82,6 +90,11 @@ namespace buscaminasVentana
         {
             selection = 8;
             btn_start.Enabled = true;
+        }
+
+        private void btn_start_Click(object sender, EventArgs e)
+        {
+            InitTable();
         }
     }
 }
