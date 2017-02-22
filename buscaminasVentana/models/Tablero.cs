@@ -45,12 +45,14 @@ namespace buscaminasConsola.models
 
         private void PonBombas()
         {
+            int percentaje = this.fils == 5 ? 30 : 50;
+
             Random rnd = new Random();
             for (int f = 1; f < this.fils - 1; f++)
             {
                 for (int c = 1; c < this.cols - 1; c++)
                 {
-                    if (rnd.Next(100) < 20)
+                    if (rnd.Next(100) < percentaje)
                     {
                         this.casillas[f, c].PonBomba();
                         SumaUnosALrededor(f, c);

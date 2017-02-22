@@ -57,10 +57,21 @@ namespace buscaminasVentana
             if (boton.Text == "B")
             {
                 MessageBox.Show("Perdiste!!!");
+                deshabilitarTodo();
             }
             else
             {
                 mostrarTexto();
+            }
+        }
+
+        private void deshabilitarTodo() {
+            for (int i = 0; i < selection; i++)
+            {
+                for (int j = 0; j < selection; j++)
+                {
+                    botones[i, j].Enabled = false;
+                }
             }
         }
 
