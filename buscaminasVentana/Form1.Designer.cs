@@ -56,7 +56,7 @@
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.lyt_container.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.lyt_container.Size = new System.Drawing.Size(474, 336);
+            this.lyt_container.Size = new System.Drawing.Size(291, 321);
             this.lyt_container.TabIndex = 0;
             // 
             // rb_easy
@@ -98,13 +98,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 427);
+            this.ClientSize = new System.Drawing.Size(319, 408);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.rb_hard);
             this.Controls.Add(this.rb_easy);
             this.Controls.Add(this.lyt_container);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Buscaminas";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

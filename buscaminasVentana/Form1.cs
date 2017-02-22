@@ -94,6 +94,8 @@ namespace buscaminasVentana
 
         private void btn_start_Click(object sender, EventArgs e)
         {
+            lyt_container.Controls.Clear();
+
             InitTable();
         }
     }
