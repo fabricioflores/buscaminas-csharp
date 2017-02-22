@@ -11,11 +11,13 @@ namespace buscaminasConsola.models
         private int fils;
         private int cols;
         private Casilla[,] casillas;
+        public int cantidadBombas { get; set; }
 
         public Tablero(int n, int m)
         {
             this.fils = n + 2;
             this.cols = m + 2;
+            this.cantidadBombas = 0;
             this.casillas = new Casilla[this.fils, this.cols];
             for (int f = 0; f < this.fils; f++)
             {
@@ -45,7 +47,7 @@ namespace buscaminasConsola.models
 
         private void PonBombas()
         {
-            int percentaje = this.fils == 5 ? 30 : 50;
+            int percentaje = this.fils == 7 ? 10 : 50;
 
             Random rnd = new Random();
             for (int f = 1; f < this.fils - 1; f++)
@@ -56,6 +58,7 @@ namespace buscaminasConsola.models
                     {
                         this.casillas[f, c].PonBomba();
                         SumaUnosALrededor(f, c);
+                        cantidadBombas++;
                     }
                 }
 

@@ -16,6 +16,7 @@ namespace buscaminasVentana
         private Tablero tablero;
         private MiBoton[,] botones;
         private int selection;
+        private int cantidadAplastados;
 
         public Form1()
         {
@@ -47,6 +48,7 @@ namespace buscaminasVentana
                     botones[i-1, j-1] = boton;
                 }
             }
+            Console.WriteLine(tablero.ToString());
         }
 
         private void levantar(object sender, EventArgs e)
@@ -54,6 +56,7 @@ namespace buscaminasVentana
             MiBoton boton = (MiBoton)sender;
             tablero.LevantaCasilla(boton.getFila(), boton.getColumna());
             boton.Text = tablero.getCasillas()[boton.getFila(), boton.getColumna()].ToString();
+            Console.WriteLine(tablero.ToString());
             if (boton.Text == "B")
             {
                 MessageBox.Show("Perdiste!!!");
@@ -62,6 +65,13 @@ namespace buscaminasVentana
             else
             {
                 mostrarTexto();
+                Console.WriteLine("bombas" + tablero.cantidadBombas);
+                Console.WriteLine("aplastados" + cantidadAplastados);
+                if (tablero.cantidadBombas == cantidadAplastados)
+                {
+                    MessageBox.Show("Ganaste!!!");
+                    deshabilitarTodo();
+                }
             }
         }
 
@@ -76,6 +86,7 @@ namespace buscaminasVentana
         }
 
         private void mostrarTexto() {
+            cantidadAplastados = selection * selection;
             for (int i = 1; i <= selection; i++)
             {
                 for (int j = 1; j <= selection; j++)
@@ -85,6 +96,7 @@ namespace buscaminasVentana
                     if (boton.Text != " ")
                     {
                         boton.Enabled = false;
+                        cantidadAplastados--;
                     }
                 }
 
