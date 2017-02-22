@@ -15,6 +15,8 @@ namespace buscaminasVentana
     {
         private Tablero tablero = new Tablero(5, 5);
         private MiBoton[,] botones = new MiBoton[5,5];
+        private int selection;
+
         public Form1()
         {
             InitializeComponent();
@@ -68,6 +70,18 @@ namespace buscaminasVentana
                 }
 
             }
-        } 
+        }
+
+        private void rb_easy_CheckedChanged(object sender, EventArgs e)
+        {
+            selection = 5;
+            btn_start.Enabled = true;
+        }
+
+        private void rb_hard_CheckedChanged(object sender, EventArgs e)
+        {
+            selection = 8;
+            btn_start.Enabled = true;
+        }
     }
 }
