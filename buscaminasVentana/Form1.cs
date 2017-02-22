@@ -17,6 +17,7 @@ namespace buscaminasVentana
         private MiBoton[,] botones;
         private int selection;
         private int cantidadAplastados;
+        private int puntuacion;
 
         public Form1()
         {
@@ -30,6 +31,7 @@ namespace buscaminasVentana
 
         private void InitTable()
         {
+            puntuacion = 0;
             tablero = new Tablero(selection, selection);
             botones = new MiBoton[selection, selection];
             lyt_container.RowCount = selection;
@@ -48,11 +50,11 @@ namespace buscaminasVentana
                     botones[i-1, j-1] = boton;
                 }
             }
-            Console.WriteLine(tablero.ToString());
         }
 
         private void levantar(object sender, EventArgs e)
         {
+            puntuacion++;
             MiBoton boton = (MiBoton)sender;
             tablero.LevantaCasilla(boton.getFila(), boton.getColumna());
             boton.Text = tablero.getCasillas()[boton.getFila(), boton.getColumna()].ToString();
@@ -69,7 +71,7 @@ namespace buscaminasVentana
                 Console.WriteLine("aplastados" + cantidadAplastados);
                 if (tablero.cantidadBombas == cantidadAplastados)
                 {
-                    MessageBox.Show("Ganaste!!!");
+                    MessageBox.Show("Ganaste!!!\nMovimientos: " + puntuacion);
                     deshabilitarTodo();
                 }
             }
