@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lyt_container = new System.Windows.Forms.TableLayoutPanel();
             this.rb_easy = new System.Windows.Forms.RadioButton();
             this.rb_hard = new System.Windows.Forms.RadioButton();
             this.btn_start = new System.Windows.Forms.Button();
+            this.txt_name = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // lyt_container
@@ -86,7 +89,7 @@
             // btn_start
             // 
             this.btn_start.Enabled = false;
-            this.btn_start.Location = new System.Drawing.Point(212, 27);
+            this.btn_start.Location = new System.Drawing.Point(183, 47);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(75, 23);
             this.btn_start.TabIndex = 3;
@@ -94,11 +97,24 @@
             this.btn_start.UseVisualStyleBackColor = true;
             this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
+            // txt_name
+            // 
+            this.txt_name.Location = new System.Drawing.Point(170, 13);
+            this.txt_name.Name = "txt_name";
+            this.txt_name.Size = new System.Drawing.Size(100, 20);
+            this.txt_name.TabIndex = 4;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(319, 408);
+            this.Controls.Add(this.txt_name);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.rb_hard);
             this.Controls.Add(this.rb_easy);
@@ -117,6 +133,8 @@
         private System.Windows.Forms.RadioButton rb_easy;
         private System.Windows.Forms.RadioButton rb_hard;
         private System.Windows.Forms.Button btn_start;
+        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

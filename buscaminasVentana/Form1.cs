@@ -18,6 +18,7 @@ namespace buscaminasVentana
         private int selection;
         private int cantidadAplastados;
         private int puntuacion;
+        private string user;
 
         public Form1()
         {
@@ -67,11 +68,9 @@ namespace buscaminasVentana
             else
             {
                 mostrarTexto();
-                Console.WriteLine("bombas" + tablero.cantidadBombas);
-                Console.WriteLine("aplastados" + cantidadAplastados);
                 if (tablero.cantidadBombas == cantidadAplastados)
                 {
-                    MessageBox.Show("Ganaste!!!\nMovimientos: " + puntuacion);
+                    MessageBox.Show("Ganaste, "+ user +"\nMovimientos: " + puntuacion);
                     deshabilitarTodo();
                 }
             }
@@ -120,7 +119,7 @@ namespace buscaminasVentana
         private void btn_start_Click(object sender, EventArgs e)
         {
             lyt_container.Controls.Clear();
-
+            user = txt_name.Text.Equals("") ? "usuario desconocido ;-)" : txt_name.Name;
             InitTable();
         }
     }
