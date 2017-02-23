@@ -66,7 +66,8 @@ namespace buscaminasVentana
             Console.WriteLine(tablero.ToString());
             if (boton.Text == "B")
             {
-                MessageBox.Show("Perdiste!!!");
+                boton.Image = new Bitmap(buscaminasVentana.Properties.Resources.bomb);
+                MessageBox.Show("Perdiste, " + user);
                 deshabilitarTodo();
             }
             else
