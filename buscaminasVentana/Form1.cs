@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using buscaminasConsola.models;
+using System.Diagnostics;
 
 namespace buscaminasVentana
 {
@@ -19,6 +20,7 @@ namespace buscaminasVentana
         private int cantidadAplastados;
         private int puntuacion;
         private string user;
+        private Stopwatch stopWatch;
 
         public Form1()
         {
@@ -35,6 +37,8 @@ namespace buscaminasVentana
             puntuacion = 0;
             tablero = new Tablero(selection, selection);
             botones = new MiBoton[selection, selection];
+            stopWatch = new Stopwatch();
+            stopWatch.Start();
             lyt_container.RowCount = selection;
             lyt_container.ColumnCount = selection;
 
@@ -70,7 +74,12 @@ namespace buscaminasVentana
                 mostrarTexto();
                 if (tablero.cantidadBombas == cantidadAplastados)
                 {
-                    MessageBox.Show("Ganaste, "+ user +"\nMovimientos: " + puntuacion);
+                    stopWatch.Stop();
+                    TimeSpan ts = stopWatch.Elapsed;
+                    string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    ts.Hours, ts.Minutes, ts.Seconds,
+                    ts.Milliseconds / 10);
+                    MessageBox.Show("Ganaste, "+ user +"\nMovimientos: " + puntuacion + "\nTiempo: " + elapsedTime);
                     deshabilitarTodo();
                 }
             }
